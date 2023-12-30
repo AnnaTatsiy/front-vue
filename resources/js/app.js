@@ -1,6 +1,16 @@
 import './bootstrap';
-import {createApp} from 'vue'
+import {createApp, markRaw} from 'vue'
+import { createPinia } from 'pinia'
 import App from '../src/App.vue'
+import router from "../src/router/router.js";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
-createApp(App).mount("#app")
+const pinia = createPinia()
+pinia.use(({store}) => {
+    store.router = markRaw(router)
+})
+
+createApp(App).use(pinia).use(router).mount("#app")
+
 

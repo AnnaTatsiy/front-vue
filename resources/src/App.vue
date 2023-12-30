@@ -1,30 +1,16 @@
-
-
 <template>
-    <button @click="addLike">like</button>
-    <button @click="addDislike">dislike</button>
-    <h1>кол-во лайков {{likes}}</h1>
-    <h1>кол-во лайков {{dislikes}}</h1>
+    <admin-layout/>
+    <router-view></router-view>
 </template>
 
 <script>
-export default {
-   data(){
-       return{
-           likes: 0,
-           dislikes: 5,
-       }
-   },
+import AdminLayout from '../src/components/layouts/AdminLayout.vue'
 
-   methods:{
-       addLike(){
-            this.likes +=1;
-       },
-       addDislike(){
-           this.dislikes += 1;
-       }
-   }
-}
+    export default {
+        components:{
+            AdminLayout
+        }
+    }
 </script>
 
 <style scoped>
