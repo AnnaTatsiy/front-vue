@@ -17,9 +17,9 @@ const form = ref({
                 <form @submit.prevent="authStore.login(form)">
                     <h1 class="h3 mb-3 fw-normal">Пожалуйста войдите</h1>
 
-                    <!--       {errors &&
-                           <Alert variant={"danger"} className={"font-size-alert"}>Некорректный логин или пароль</Alert>
-                           } -->
+                    <div v-if="authStore.authErrors" class="alert alert-danger font-size-alert" role="alert">
+                        Некорректный логин или пароль
+                    </div>
 
                     <div class="form-floating">
                         <input id="emailInput"
@@ -50,5 +50,7 @@ const form = ref({
 </template>
 
 <style scoped>
-
+.container-fluid-login {
+    width: 320px;
+}
 </style>

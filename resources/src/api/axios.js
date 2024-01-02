@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default axios.create({
         // адрес сервера
-        baseURL: "http://127.0.0.1:8000/api",
+        baseURL: "http://127.0.0.1:8000",
         withCredentials: true,
 
         // заголовки запросов

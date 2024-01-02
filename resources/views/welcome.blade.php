@@ -9,7 +9,7 @@
         @vite('resources/css/app.css')
 
     </head>
-    <body>
+    <body class="bg-light bg-gradient">
     <div id="app"></div>
     @vite('resources/js/app.js')
     </body>

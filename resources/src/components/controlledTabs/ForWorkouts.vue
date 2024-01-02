@@ -1,0 +1,27 @@
+<script setup>
+import { useWindowSize } from '@vueuse/core'
+import GroupWorkoutsList from "../groupWorkouts/GroupWorkoutsList.vue";
+import SignUpPersonalWorkoutsList from "../signUpPersonalWorkouts/SignUpPersonalWorkoutsList.vue";
+
+const { width} = useWindowSize()
+</script>
+
+<template>
+    <ul class="nav" v-bind:class="{ 'nav-tabs': width > 770, 'nav-pills': width < 770 }" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="first-tab" data-bs-toggle="tab" data-bs-target="#first-tab-pane" type="button" role="tab" aria-controls="first-tab-pane" aria-selected="true">Групповые тренировки</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="second-tab" data-bs-toggle="tab" data-bs-target="#second-tab-pane" type="button" role="tab" aria-controls="second-tab-pane" aria-selected="false">Персональные тренировки</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><GroupWorkoutsList/></div>
+        <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><SignUpPersonalWorkoutsList/></div>
+    </div>
+
+</template>
+
+<style scoped>
+
+</style>
