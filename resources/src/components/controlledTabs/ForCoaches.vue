@@ -2,6 +2,7 @@
 import {useWindowSize} from '@vueuse/core'
 import CoachesList from "../coaches/CoachesList.vue";
 import LimitedPriceLists from "../limitedPriceLists/LimitedPriceLists.vue";
+import CoachesPage from "../coaches/CoachesPage.vue";
 
 const {width} = useWindowSize()
 
@@ -17,7 +18,7 @@ const {width} = useWindowSize()
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><CoachesList/></div>
+            <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><coaches-page/></div>
             <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><LimitedPriceLists/></div>
         </div>
 </template>
