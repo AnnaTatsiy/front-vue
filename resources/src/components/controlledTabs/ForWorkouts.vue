@@ -1,7 +1,8 @@
 <script setup>
 import { useWindowSize } from '@vueuse/core'
-import GroupWorkoutsList from "../groupWorkouts/GroupWorkoutsList.vue";
 import SignUpPersonalWorkoutsList from "../signUpPersonalWorkouts/SignUpPersonalWorkoutsList.vue";
+import GroupWorkoutsPage from "../groupWorkouts/GroupWorkoutsPage.vue";
+import SignUpPersonalWorkoutsPage from "../signUpPersonalWorkouts/SignUpPersonalWorkoutsPage.vue";
 
 const { width} = useWindowSize()
 </script>
@@ -16,10 +17,9 @@ const { width} = useWindowSize()
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><GroupWorkoutsList/></div>
-        <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><SignUpPersonalWorkoutsList/></div>
+        <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><group-workouts-page/></div>
+        <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><sign-up-personal-workouts-page/></div>
     </div>
-
 </template>
 
 <style scoped>

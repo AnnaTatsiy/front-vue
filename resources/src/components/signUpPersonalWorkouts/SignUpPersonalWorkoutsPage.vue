@@ -1,34 +1,31 @@
 <script setup>
-
-import {useCustomerStore} from "../../store/customer.js";
 import {storeToRefs} from "pinia";
 import {onMounted, ref, watch} from "vue";
+import {useSignUpPersonalWorkoutStore} from "../../store/signUpPersonalWorkout.js";
 import MyPaginate from "../MyPaginate.vue";
-import CustomersList from "./CustomersList.vue";
+import SignUpPersonalWorkoutsList from "./SignUpPersonalWorkoutsList.vue";
 
-const customerStore = useCustomerStore()
+const signStore = useSignUpPersonalWorkoutStore()
 
-const {customers, totalPage, datalist} = storeToRefs(customerStore)
+const {signs, totalPage} =  storeToRefs(signStore)
 
 let currPage = ref(1)
 
 onMounted(() => {
-    customerStore.getCustomers(1)
-    customerStore.getDataList()
+    signStore.getSign(1)
 })
 
 watch(currPage, () => {
-    customerStore.getCustomers(currPage.value)
+    signStore.getSign(currPage.value)
 })
 
 const changePage = (page) => {
     currPage.value = page
 }
-
 </script>
 
 <template>
-    <customers-list :customers="customers"/>
+    <sign-up-personal-workouts-list :signs="signs"/>
     <my-paginate :total-page="totalPage" :curr-page="currPage" @change="changePage"/>
 </template>
 

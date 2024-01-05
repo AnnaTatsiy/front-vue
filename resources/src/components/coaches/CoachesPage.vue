@@ -5,6 +5,7 @@ import MyPaginate from "../MyPaginate.vue";
 import {useCoachStore} from "../../store/coach.js";
 import {storeToRefs} from "pinia";
 import {onMounted, ref, watch} from "vue";
+import MySearchInput from "../UI/MySearchInput.vue";
 
 const coachStore = useCoachStore()
 
@@ -12,8 +13,6 @@ const {coaches, totalPage, datalist, coachByPassport} = storeToRefs(coachStore)
 
 let currPage = ref(1)
 let searchValue = ref('')
-
-let arr = ref([])
 
 onMounted(() => {
     coachStore.getCoaches(1)
@@ -24,13 +23,12 @@ watch(currPage, () => {
     coachStore.getCoaches(currPage.value)
 })
 
-watch(searchValue, () => {
-    arr = (searchValue.value.length !== 0) ? coachStore.coachByPassport : coaches
-    console.log(searchValue.value)
-})
-
 const changePage = (page) => {
     currPage.value = page
+}
+
+const changeValue = (value) => {
+    searchValue.value = value.target.value
 }
 
 </script>
@@ -39,27 +37,7 @@ const changePage = (page) => {
 
     <div class="col">
         <div class="row mt-2">
-            <div class="col max-width-form-control min-width-form-control">
-                <div class="form-floating">
-                    <input
-                        class="form-control"
-                        type="text"
-                        v-model="searchValue"
-                        list="datalistOptions" id="exampleDataList"
-                        placeholder="Type to search..."
-                        name="passport"/>
-                    <!--       onChange={(e) => {
-                       setSearchValue(e.target.value);
-                       }} -->
-
-                    <datalist id="datalistOptions">
-                        <option v-for="coach in datalist">{{coach.surname}} {{coach.name}} {{coach.patronymic}}</option>
-                    </datalist>
-                    <label for="exampleDataList" class="font-size-alert form-label p-3 text-secondary">ФИО или
-                        серия-номер
-                        паспорта:</label>
-                </div>
-            </div>
+           <my-search-input v-model="searchValue" :datalist="datalist" @change="changeValue"/>
             <div class="col mt-2 ms-3">
 
                 <div class="row">
@@ -94,7 +72,7 @@ const changePage = (page) => {
            </div> -->
        </div>
 
-       <coaches-list :coaches="arr.value"/>
+       <coaches-list :coaches="(searchValue.length !== 0) ? coachByPassport(searchValue) : coaches"/>
        <my-paginate :total-page="totalPage" :curr-page="currPage" @change="changePage"/>
    </template>
 

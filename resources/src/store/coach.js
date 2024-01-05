@@ -10,8 +10,7 @@ export const useCoachStore = defineStore('coach', {
 
     getters: {
         coachByPassport() {
-            console.log(this.datalist.filter(coach => coach.passport.includes('8')))
-            return this.datalist.filter(coach => coach.passport.includes('8'))
+            return (searchValue) => this.datalist.filter(coach => coach.passport.includes(searchValue))
         }
     },
 

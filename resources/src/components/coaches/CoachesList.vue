@@ -1,5 +1,6 @@
 <script setup>
 import CoachTableData from "./CoachTableData.vue";
+import NotFountAlert from "../UI/NotFountAlert.vue";
 
 const props = defineProps({
         coaches: Array
@@ -31,9 +32,7 @@ const props = defineProps({
             </tbody>
         </table>
 
-        <div v-else class="alert alert-danger" role="alert">
-            По вашему запросу ничего не найдено
-        </div>
+        <not-fount-alert v-else/>
 
         <!--
     <CoachFormModal

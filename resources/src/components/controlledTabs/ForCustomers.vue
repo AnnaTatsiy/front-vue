@@ -4,6 +4,8 @@ import CustomersList from "../customers/CustomersList.vue";
 import UnlimitedSubscriptionsList from "../unlimitedSubscriptions/UnlimitedSubscriptionsList.vue";
 import LimitedSubscriptionsList from "../limitedSubscriptions/LimitedSubscriptionsList.vue";
 import CustomersPage from "../customers/CustomersPage.vue";
+import UnlimitedSubscriptionsPage from "../unlimitedSubscriptions/UnlimitedSubscriptionsPage.vue";
+import LimitedSubscriptionsPage from "../limitedSubscriptions/LimitedSubscriptionsPage.vue";
 
 const { width} = useWindowSize()
 </script>
@@ -22,8 +24,8 @@ const { width} = useWindowSize()
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="first-tab-pane" role="tabpanel" aria-labelledby="first-tab" tabindex="0"><customers-page/></div>
-        <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><UnlimitedSubscriptionsList/></div>
-        <div class="tab-pane fade" id="third-tab-pane" role="tabpanel" aria-labelledby="third-tab" tabindex="0"><LimitedSubscriptionsList/></div>
+        <div class="tab-pane fade" id="second-tab-pane" role="tabpanel" aria-labelledby="second-tab" tabindex="0"><unlimited-subscriptions-page/></div>
+        <div class="tab-pane fade" id="third-tab-pane" role="tabpanel" aria-labelledby="third-tab" tabindex="0"><limited-subscriptions-page/></div>
     </div>
 </template>
 
